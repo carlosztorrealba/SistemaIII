@@ -71,7 +71,7 @@ public class JPlanificacion extends javax.swing.JFrame {
                 {null, null, null, null, null}
             },
             new String [] {
-                "Codigo", "Nombre Organizacion", "Tipo Organizacion", "Nombre Responsable", "Fecha"
+                "Codigo", "Organizacion", "Tipo Organizacion", " Responsable", "Fecha"
             }
         ) {
             boolean[] canEdit = new boolean [] {
