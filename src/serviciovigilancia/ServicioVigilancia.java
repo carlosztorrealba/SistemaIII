@@ -5,6 +5,8 @@
  */
 package serviciovigilancia;
 
+import Controladores.ControladorJUsuario;
+
 /**
  *
  * @author Carlos Enrique
@@ -15,7 +17,7 @@ public class ServicioVigilancia {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+       new ControladorJUsuario(); // TODO code application logic here
     }
     
 }
