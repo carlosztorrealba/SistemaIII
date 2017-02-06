@@ -31,6 +31,10 @@ public class Personal1
         this.estatus = estatus;
     }
 
+    public Personal1() {
+        super();
+    }
+
     public String getCedula() {
         return cedula;
     }

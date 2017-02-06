@@ -15,6 +15,7 @@ import java.awt.event.KeyListener;
 import Modelos.Mensajes;
 import Modelos.Rutinas;
 import Modelos.Usuario;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -59,7 +60,7 @@ public class ControladorJUsuario implements ActionListener, KeyListener
      
     }
     
-       //-------------------------------------------------------------------  
+ //==================================================================================
   private void Validacedula(KeyEvent e)    
 {
   String Cadena;
@@ -72,7 +73,7 @@ public class ControladorJUsuario implements ActionListener, KeyListener
       return;
     }
   }
-  //-----------------------------------------------------
+//==================================================================================
   private void Validapassword(KeyEvent e)    
 {
   String Cadena;
@@ -87,7 +88,7 @@ public class ControladorJUsuario implements ActionListener, KeyListener
   }
   
   
-  //------------------------------------
+ //==================================================================================
   private void Cancelar()
     {  
      jusu.getTxtUsuario().setText(""); 
@@ -131,7 +132,66 @@ public class ControladorJUsuario implements ActionListener, KeyListener
  Cancelar();
   }  
 
-//----------------------
+ /*==================================================================================
+  
+  private void ValidarUsuario() throws SQLException
+{
+   String Cadena ;
+  String ced ;  
+  String pass ;
+  UsuarioDAO daoUsua=new UsuarioDAO();
+  ResultSet regisUsua;
+  
+  Cadena=jusu.getTxtUsuario().getText().trim();
+  
+  if (Cadena.length()==0)
+   {  
+     Mensajes.Aviso("Usuario Vacio", "");  
+    jusu.getTxtUsuario().requestFocusInWindow();
+     return;
+   } 
+  
+  Cadena=jusu.getTxtContraseña().getText().trim();
+  
+  if (Cadena.length()==0)
+   {  
+     Mensajes.Aviso("Contraseña Vacia", "");  
+     jusu.getTxtContraseña().requestFocusInWindow();
+     return;
+   } 
+  
+  ced=jusu.getTxtUsuario().getText().trim();
+  pass=jusu.getTxtContraseña().getText();
+  regisUsua=daoUsua.buscarUsuarioCargo(ced, pass);
+  
+  if (regisUsua.next())
+    {  
+        
+
+        if (null != regisUsua.getString("nombrecargo").trim())
+          switch (regisUsua.getString("nombrecargo").trim()) {
+           case "Supervisor":
+               new ControladorPrincipal(true,true,false,false,true,true);
+               break;
+           case "Administrador":
+               new ControladorPrincipal(true,true,true,true,true,true);
+               break;
+           case "Gerente":
+               new ControladorPrincipal(false,false,false,false,false,false);
+               break;
+       }
+        
+    } 
+  else
+     Rutinas.Aviso("Usuario no existe Y/O contraseña incorrecta", ""); 
+   //Enabled(false);
+  
+}  
+  
+  
+  
+  
+//==================================================================================*/
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -147,10 +207,21 @@ public class ControladorJUsuario implements ActionListener, KeyListener
         
              if(e.getSource().equals(jusu.getBtnEntrar()))
        {
-          
+           if (!"12345".equals(jusu.getTxtContraseña().getText()))
+              {
+                  Mensajes.Aviso("USUARIO Y/O CONTRASEÑA INVALIDOS", "");
+              }
+           else
                new ControladorPrincipal();
-          
-       }   
+                
+            
+           /* try {  
+                ValidarUsuario();
+            } catch (SQLException ex) {
+                Logger.getLogger(ControladorJUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            }*/
+       } 
+         
     }
 
     @Override
