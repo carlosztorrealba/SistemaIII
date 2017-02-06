@@ -1,0 +1,276 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 9.1.14
+-- Dumped by pg_dump version 9.1.14
+-- Started on 2017-02-06 00:09:25
+
+SET statement_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+
+--
+-- TOC entry 167 (class 3079 OID 11639)
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+--
+
+CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
+
+
+--
+-- TOC entry 1897 (class 0 OID 0)
+-- Dependencies: 167
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
+
+
+SET search_path = public, pg_catalog;
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- TOC entry 164 (class 1259 OID 25124)
+-- Dependencies: 5
+-- Name: almacen; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE almacen (
+    codalmacen text NOT NULL,
+    nombrealmacen text
+);
+
+
+ALTER TABLE public.almacen OWNER TO postgres;
+
+--
+-- TOC entry 163 (class 1259 OID 25116)
+-- Dependencies: 5
+-- Name: cargo; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE cargo (
+    codcargo text NOT NULL,
+    nombrecargo text
+);
+
+
+ALTER TABLE public.cargo OWNER TO postgres;
+
+--
+-- TOC entry 162 (class 1259 OID 25108)
+-- Dependencies: 5
+-- Name: personal; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE personal (
+    ci text NOT NULL,
+    nombreper text,
+    apellidoper text,
+    codcargo text,
+    tipoper text,
+    fechaingreso text,
+    estatusper text
+);
+
+
+ALTER TABLE public.personal OWNER TO postgres;
+
+--
+-- TOC entry 165 (class 1259 OID 25132)
+-- Dependencies: 5
+-- Name: tipoinsumo; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE tipoinsumo (
+    codtipoinsumo text NOT NULL,
+    nombreinsumo text
+);
+
+
+ALTER TABLE public.tipoinsumo OWNER TO postgres;
+
+--
+-- TOC entry 166 (class 1259 OID 25140)
+-- Dependencies: 5
+-- Name: tipoorganizacion; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE tipoorganizacion (
+    codtipoorg text NOT NULL,
+    nombreorg text
+);
+
+
+ALTER TABLE public.tipoorganizacion OWNER TO postgres;
+
+--
+-- TOC entry 161 (class 1259 OID 25100)
+-- Dependencies: 5
+-- Name: usuario; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE usuario (
+    cedula text NOT NULL,
+    password text
+);
+
+
+ALTER TABLE public.usuario OWNER TO postgres;
+
+--
+-- TOC entry 1887 (class 0 OID 25124)
+-- Dependencies: 164 1890
+-- Data for Name: almacen; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY almacen (codalmacen, nombrealmacen) FROM stdin;
+0001	Almacen B
+\.
+
+
+--
+-- TOC entry 1886 (class 0 OID 25116)
+-- Dependencies: 163 1890
+-- Data for Name: cargo; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY cargo (codcargo, nombrecargo) FROM stdin;
+0001	Administrador
+0002	Supervisor
+\.
+
+
+--
+-- TOC entry 1885 (class 0 OID 25108)
+-- Dependencies: 162 1890
+-- Data for Name: personal; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY personal (ci, nombreper, apellidoper, codcargo, tipoper, fechaingreso, estatusper) FROM stdin;
+20235023	Carlos	Torrealba	0001	Fijo	Sun Sep 24 00:00:00 BOT 2000	Activo
+12345678	Juan	Martinez	0001	Fijo	Wed Jan 01 00:00:00 BOT 16	Activo
+7356280	Rosa 	Rondon	0002	Fijo	Thu Feb 06 00:00:00 BOT 16	Activo
+\.
+
+
+--
+-- TOC entry 1888 (class 0 OID 25132)
+-- Dependencies: 165 1890
+-- Data for Name: tipoinsumo; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY tipoinsumo (codtipoinsumo, nombreinsumo) FROM stdin;
+0001	Uniformes
+\.
+
+
+--
+-- TOC entry 1889 (class 0 OID 25140)
+-- Dependencies: 166 1890
+-- Data for Name: tipoorganizacion; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY tipoorganizacion (codtipoorg, nombreorg) FROM stdin;
+0001	Empresa Bancaria
+\.
+
+
+--
+-- TOC entry 1884 (class 0 OID 25100)
+-- Dependencies: 161 1890
+-- Data for Name: usuario; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY usuario (cedula, password) FROM stdin;
+12345	Admin
+123	carlos
+15200300	12345
+18998719	12345
+\.
+
+
+--
+-- TOC entry 1778 (class 2606 OID 25131)
+-- Dependencies: 164 164 1891
+-- Name: almacen_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY almacen
+    ADD CONSTRAINT almacen_pkey PRIMARY KEY (codalmacen);
+
+
+--
+-- TOC entry 1776 (class 2606 OID 25123)
+-- Dependencies: 163 163 1891
+-- Name: cargo_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY cargo
+    ADD CONSTRAINT cargo_pkey PRIMARY KEY (codcargo);
+
+
+--
+-- TOC entry 1774 (class 2606 OID 25115)
+-- Dependencies: 162 162 1891
+-- Name: personal_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY personal
+    ADD CONSTRAINT personal_pkey PRIMARY KEY (ci);
+
+
+--
+-- TOC entry 1780 (class 2606 OID 25139)
+-- Dependencies: 165 165 1891
+-- Name: tipoinsumo_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY tipoinsumo
+    ADD CONSTRAINT tipoinsumo_pkey PRIMARY KEY (codtipoinsumo);
+
+
+--
+-- TOC entry 1782 (class 2606 OID 25147)
+-- Dependencies: 166 166 1891
+-- Name: tipoorganizacion_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY tipoorganizacion
+    ADD CONSTRAINT tipoorganizacion_pkey PRIMARY KEY (codtipoorg);
+
+
+--
+-- TOC entry 1772 (class 2606 OID 25107)
+-- Dependencies: 161 161 1891
+-- Name: usuario_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY usuario
+    ADD CONSTRAINT usuario_pkey PRIMARY KEY (cedula);
+
+
+--
+-- TOC entry 1896 (class 0 OID 0)
+-- Dependencies: 5
+-- Name: public; Type: ACL; Schema: -; Owner: postgres
+--
+
+REVOKE ALL ON SCHEMA public FROM PUBLIC;
+REVOKE ALL ON SCHEMA public FROM postgres;
+GRANT ALL ON SCHEMA public TO postgres;
+GRANT ALL ON SCHEMA public TO PUBLIC;
+
+
+-- Completed on 2017-02-06 00:09:26
+
+--
+-- PostgreSQL database dump complete
+--
+
