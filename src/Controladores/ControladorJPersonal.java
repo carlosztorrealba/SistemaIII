@@ -48,7 +48,7 @@ public class ControladorJPersonal implements ActionListener
               {     
                  ValidaCedula(e); 
                }
-                 
+              
             @Override
             public void keyPressed(KeyEvent e) 
                {
@@ -140,12 +140,12 @@ public class ControladorJPersonal implements ActionListener
           
          
          jperso.getTxtNombre().requestFocusInWindow();
-        //Enabale(true)
+       // Enabled(true);
         Hallado=false;
          return;
        }
       Hallado=true;
-      //Enabled(true); 
+     // Enabled(true); 
       jperso.getTxtNombre().setText(RegistroPersonal.getString("nombrePer"));
       jperso.getTxtApellido().setText(RegistroPersonal.getString("apellidoper"));
       jperso.getTxtCodigoCargo().setText(RegistroPersonal.getString("codCargo"));

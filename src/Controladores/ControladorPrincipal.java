@@ -93,6 +93,26 @@ public class ControladorPrincipal implements ActionListener
                 Logger.getLogger(ControladorPrincipal.class.getName()).log(Level.SEVERE, null, ex);
             }
                 }
+                  
+                  
+                if (e.getSource().equals(principal.getItemControlTipoServicio())) 
+                {
+            try {
+                new ControladorJTipoServicio();
+            } catch (SQLException ex) {
+                Logger.getLogger(ControladorPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+            }
+                }
+                
+                
+                
+           if (e.getSource().equals(principal.getItemControlOrganizacion())) 
+                {
+         
+                new ControladorJOrganizacion();
+           
+                
+                }         
        } 
   
     
