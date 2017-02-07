@@ -292,7 +292,11 @@ tiser=new TipoServicio(formTipoServicio.getTxtCodTipoServicio().getText(),
       
       if(e.getSource().equals(formTipoServicio.getBtnConsultar()))
        {
-         
+           try {
+                new ControladorJConsultarTipoServicio();
+            } catch (SQLException ex) {
+                Logger.getLogger(ControladorJTipoServicio.class.getName()).log(Level.SEVERE, null, ex);
+            }
        }  
     }
 

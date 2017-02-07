@@ -33,7 +33,10 @@ public class JPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         barUsuario = new javax.swing.JMenu();
         itmControlUsuario = new javax.swing.JMenuItem();
@@ -56,28 +59,62 @@ public class JPrincipal extends javax.swing.JFrame {
         itemEvaluacion = new javax.swing.JMenuItem();
         barPlanificacion = new javax.swing.JMenu();
         itemPlanificacionServicio = new javax.swing.JMenuItem();
+        BarConsultas = new javax.swing.JMenu();
+        itemConsultarPersonal = new javax.swing.JMenuItem();
+        itemConsultarOrganizacion = new javax.swing.JMenuItem();
+        itemConsultarTipoInsumo = new javax.swing.JMenuItem();
+        itemConsultarTipoServicio = new javax.swing.JMenuItem();
+        itemConsultarTipoOrg = new javax.swing.JMenuItem();
+        itemConsultarCargos = new javax.swing.JMenuItem();
+        itemConsultarAlmacen = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(204, 255, 204));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/logoLaUnionGrande.png"))); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel2.setText("BIENVENIDOS AL  SISTEMA ");
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel1.setText("EMPRESA DE VIGILANCIA ");
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel3.setText("LA UNION 2010 S.A");
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/LOGOLAUNION.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 491, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jLabel2)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel4)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addGap(66, 66, 66)
+                                    .addComponent(jLabel1)))
+                            .addGap(5, 5, 5)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(103, 103, 103)
+                        .addComponent(jLabel3)))
+                .addContainerGap(55, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 396, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel3)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel4)
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         barUsuario.setText("Usuario");
@@ -149,6 +186,31 @@ public class JPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(barPlanificacion);
 
+        BarConsultas.setText("Consultas");
+
+        itemConsultarPersonal.setText("Consultar Personal");
+        BarConsultas.add(itemConsultarPersonal);
+
+        itemConsultarOrganizacion.setText("Consultar Organizacion");
+        BarConsultas.add(itemConsultarOrganizacion);
+
+        itemConsultarTipoInsumo.setText("Consultar Tipo de Insumo");
+        BarConsultas.add(itemConsultarTipoInsumo);
+
+        itemConsultarTipoServicio.setText("Consultar Tipo de Servicio");
+        BarConsultas.add(itemConsultarTipoServicio);
+
+        itemConsultarTipoOrg.setText("Consultar Tipo de Organizacion");
+        BarConsultas.add(itemConsultarTipoOrg);
+
+        itemConsultarCargos.setText("Consultar Cargo");
+        BarConsultas.add(itemConsultarCargos);
+
+        itemConsultarAlmacen.setText("Consultar Almacen");
+        BarConsultas.add(itemConsultarAlmacen);
+
+        jMenuBar1.add(BarConsultas);
+
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -156,8 +218,9 @@ public class JPrincipal extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -293,6 +356,38 @@ public class JPrincipal extends javax.swing.JFrame {
         return jMenuBar1;
     }
 
+    public JMenu getBarConsultas() {
+        return BarConsultas;
+    }
+
+    public JMenuItem getItemConsultarAlmacen() {
+        return itemConsultarAlmacen;
+    }
+
+    public JMenuItem getItemConsultarCargos() {
+        return itemConsultarCargos;
+    }
+
+    public JMenuItem getItemConsultarOrganizacion() {
+        return itemConsultarOrganizacion;
+    }
+
+    public JMenuItem getItemConsultarPersonal() {
+        return itemConsultarPersonal;
+    }
+
+    public JMenuItem getItemConsultarTipoInsumo() {
+        return itemConsultarTipoInsumo;
+    }
+
+    public JMenuItem getItemConsultarTipoOrg() {
+        return itemConsultarTipoOrg;
+    }
+
+    public JMenuItem getItemConsultarTipoServicio() {
+        return itemConsultarTipoServicio;
+    }
+
     
     
         public void agregarListener (ActionListener accion)
@@ -318,16 +413,32 @@ public class JPrincipal extends javax.swing.JFrame {
     this.itemControlTipoServicio.addActionListener(accion);
     this.itmControlUsuario.addActionListener(accion);
     this.itemPlanificacionServicio.addActionListener(accion);
+    this.itemConsultarAlmacen.addActionListener(accion);
+    this.itemConsultarCargos.addActionListener(accion);
+    this.itemConsultarOrganizacion.addActionListener(accion);
+    this.itemConsultarTipoOrg.addActionListener(accion);
+    this.itemConsultarPersonal.addActionListener(accion);
+    this.itemConsultarTipoInsumo.addActionListener(accion);
+    this.itemConsultarTipoServicio.addActionListener(accion);
+    
     
   
 }  
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu BarConsultas;
     private javax.swing.JMenu barInsumo;
     private javax.swing.JMenu barOrganizacion;
     private javax.swing.JMenu barPersonal;
     private javax.swing.JMenu barPlanificacion;
     private javax.swing.JMenu barServicio;
     private javax.swing.JMenu barUsuario;
+    private javax.swing.JMenuItem itemConsultarAlmacen;
+    private javax.swing.JMenuItem itemConsultarCargos;
+    private javax.swing.JMenuItem itemConsultarOrganizacion;
+    private javax.swing.JMenuItem itemConsultarPersonal;
+    private javax.swing.JMenuItem itemConsultarTipoInsumo;
+    private javax.swing.JMenuItem itemConsultarTipoOrg;
+    private javax.swing.JMenuItem itemConsultarTipoServicio;
     private javax.swing.JMenuItem itemControlAlmacen;
     private javax.swing.JMenuItem itemControlAsistencia;
     private javax.swing.JMenuItem itemControlAusencia;
@@ -344,6 +455,9 @@ public class JPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem itemPlanificacionServicio;
     private javax.swing.JMenuItem itmControlUsuario;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables

@@ -283,7 +283,14 @@ alma=new Almacen(formAlmacen.getTxtCodAlmacen().getText(),
         
         if(e.getSource().equals(formAlmacen.getBtnConsultar()))
        {  
-        
+          
+            try {
+                new ControladorJConsultarAlmacen();
+            } catch (SQLException ex) {
+                Logger.getLogger(ControladorJAlmacen.class.getName()).log(Level.SEVERE, null, ex);
+            }
+           
+            
        }      
        
 }

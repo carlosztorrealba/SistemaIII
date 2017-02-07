@@ -112,7 +112,97 @@ public class ControladorPrincipal implements ActionListener
                 new ControladorJOrganizacion();
            
                 
-                }         
+                }  
+           
+            if (e.getSource().equals(principal.getItemConsultarAlmacen())) 
+                {
+         
+            try {
+                new ControladorJConsultarAlmacen();
+            } catch (SQLException ex) {
+                Logger.getLogger(ControladorPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+            }
+           
+                
+                } 
+            
+              if (e.getSource().equals(principal.getItemConsultarCargos())) 
+                {
+         
+            try {
+                new ControladorJConsultarCargo();
+            } catch (SQLException ex) {
+                Logger.getLogger(ControladorPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+            }
+           
+                
+                }
+             if (e.getSource().equals(principal.getItemConsultarOrganizacion())) 
+                {
+         
+            try {
+                new ControladorJConsultarOrganizacion();
+            } catch (SQLException ex) {
+                Logger.getLogger(ControladorPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+            }
+           
+                
+                } 
+             
+             
+             
+               if (e.getSource().equals(principal.getItemConsultarPersonal())) 
+                {
+         
+            try {
+                new ControladorJConsultarPersonal();
+            } catch (SQLException ex) {
+                Logger.getLogger(ControladorPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+            }
+           
+                
+                } 
+     
+               
+                    if (e.getSource().equals(principal.getItemConsultarTipoInsumo())) 
+                {
+         
+            try {
+                new ControladorJConsultarTipoInsumo();
+            } catch (SQLException ex) {
+                Logger.getLogger(ControladorPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+            }
+           
+                
+                } 
+                    
+                    
+                    
+                  if (e.getSource().equals(principal.getItemConsultarTipoOrg())) 
+                {
+         
+            try {
+                new ControladorJConsultarTipoOrganizacion();
+            } catch (SQLException ex) {
+                Logger.getLogger(ControladorPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+            }
+           
+                
+                }
+                  
+                  
+                  
+                   if (e.getSource().equals(principal.getItemConsultarTipoServicio())) 
+                {
+         
+            try {
+                new ControladorJConsultarTipoServicio();
+            } catch (SQLException ex) {
+                Logger.getLogger(ControladorPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+            }
+           
+                
+                } 
        } 
   
     

@@ -508,6 +508,24 @@ public class ControladorJOrganizacion implements ActionListener, KeyListener
                  jorg.dispose();  
              }
         
+         if(e.getSource().equals(jorg.getBtnTipoOrg()))
+             {
+            try {  
+                new ControladorJConsultarTipoOrganizacion();
+            } catch (SQLException ex) {
+                Logger.getLogger(ControladorJOrganizacion.class.getName()).log(Level.SEVERE, null, ex);
+            }
+             }
+         
+          if(e.getSource().equals(jorg.getBtnConsultar()))
+             {
+            try {  
+                new ControladorJConsultarOrganizacion();
+            } catch (SQLException ex) {
+                Logger.getLogger(ControladorJOrganizacion.class.getName()).log(Level.SEVERE, null, ex);
+            }
+             }
+        
     }
 
     @Override

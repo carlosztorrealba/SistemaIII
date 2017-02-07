@@ -284,15 +284,17 @@ car=new Cargo( formCargo.getTxtCodCargo().getText(),
        //----------------------------------------------------------------
        
         //----------------------------------------------------------------
-       /*if(e.getSource().equals(formCargo.getjButtonConsultar()))
+       if(e.getSource().equals(formCargo.getBtnConsultar()))
        {  
-           try {  
-                  new ControladorConsulCargo();
-            } catch (SQLException ex) {
-                Logger.getLogger(ControladorCargo.class.getName()).log(Level.SEVERE, null, ex);
-            }
           
-       } */     
+            try {
+                new ControladorJConsultarCargo();
+            } catch (SQLException ex) {
+                Logger.getLogger(ControladorJCargo.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+       
+       }   
        
     }
 

@@ -283,7 +283,11 @@ tima=new TipoInsumo( formTipoMaterial.getTxtCodInsumo().getText(),
         
         if(e.getSource().equals(formTipoMaterial.getBtnConsultar()))
        {
-       
+              try {
+                new ControladorJConsultarTipoInsumo();
+            } catch (SQLException ex) {
+                Logger.getLogger(ControladorJTipoInsumo.class.getName()).log(Level.SEVERE, null, ex);
+            }
        }  
     }
 

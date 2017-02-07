@@ -149,7 +149,7 @@ public class ControladorJPersonal implements ActionListener
       jperso.getTxtNombre().setText(RegistroPersonal.getString("nombrePer"));
       jperso.getTxtApellido().setText(RegistroPersonal.getString("apellidoper"));
       jperso.getTxtCodigoCargo().setText(RegistroPersonal.getString("codCargo"));
-      jperso.getFrmtFechaIngreso().setText(RegistroPersonal.getString("fechaIngreso"));
+      jperso.getTxtFechaIngreso().setText(RegistroPersonal.getString("fechaIngreso"));
       jperso.getCmbTipoPersonal().setSelectedItem(RegistroPersonal.getString("tipoper"));
       jperso.getCmbEstatus().setSelectedItem(RegistroPersonal.getString("estatusper"));
        
@@ -263,7 +263,7 @@ public class ControladorJPersonal implements ActionListener
       jperso.getTxtCedula().setText(""); 
       jperso.getTxtNombre().setText("");
       jperso.getTxtApellido().setText("");
-      jperso.getFrmtFechaIngreso().setText("");
+      jperso.getTxtFechaIngreso().setText("");
       jperso.getTxtCodigoCargo().setText("");
       jperso.getTxtNombreCargo().setText("");
       jperso.getCmbTipoPersonal().setSelectedIndex(0);
@@ -300,7 +300,7 @@ public class ControladorJPersonal implements ActionListener
   {
       jperso.getTxtCedula().setEnabled(!status);
       jperso.getTxtNombre().setEnabled(status);
-      jperso.getFrmtFechaIngreso().setEnabled(status);
+      jperso.getTxtFechaIngreso().setEnabled(status);
       jperso.getTxtCodigoCargo().setEnabled(status);
       jperso.getTxtApellido().setEnabled(status);
       jperso.getTxtNombreCargo().setEnabled(status);
@@ -346,19 +346,21 @@ public class ControladorJPersonal implements ActionListener
      jperso.getTxtApellido().requestFocusInWindow();
      return;
    } 
-  
+ 
   if (Cadena.length()==0)
    {  
      Mensajes.Aviso("Codigo del cargo Vacio", "");  
      jperso.getTxtCodigoCargo().requestFocusInWindow();
      return;
    } 
-   Cadena=jperso.getFrmtFechaIngreso().getText().trim();
+  
+
+   Cadena=jperso.getTxtFechaIngreso().getText().trim();
   
   if (Cadena.length()==0)
    {  
      Mensajes.Aviso("Fecha Vacia", "");  
-     jperso.getFrmtFechaIngreso().requestFocusInWindow();
+     jperso.getTxtFechaIngreso().requestFocusInWindow();
      return;
    } 
   if (jperso.getCmbTipoPersonal().getSelectedIndex()==0)  
@@ -384,14 +386,14 @@ public class ControladorJPersonal implements ActionListener
   
  //Grabacion************************
 
-Date Fecha= Rutinas.CnvStringFecha(jperso.getFrmtFechaIngreso().getText());
+//Date Fecha= Rutinas.CnvStringFecha(jperso.getFrmtFechaIngreso().getText());
 
     perso=new Personal1(jperso.getTxtCedula().getText(),
                        jperso.getTxtNombre().getText(),
                        jperso.getTxtApellido().getText(),
                        jperso.getTxtCodigoCargo().getText(),
                        tipo,
-                       Fecha,
+                       jperso.getTxtFechaIngreso().getText(),
                        estatus
                        );
  
@@ -439,7 +441,29 @@ Date Fecha= Rutinas.CnvStringFecha(jperso.getFrmtFechaIngreso().getText());
                  jperso.dispose();  
              }
         
-        
+            if(e.getSource().equals(jperso.getBtnCargos()))
+       {  
+          
+            try {
+                new ControladorJConsultarCargo();
+            } catch (SQLException ex) {
+                Logger.getLogger(ControladorJCargo.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+       
+       }
+            
+                  if(e.getSource().equals(jperso.getBtnConsultar()))
+       {  
+          
+            try {
+                new ControladorJConsultarPersonal();
+            } catch (SQLException ex) {
+                Logger.getLogger(ControladorJCargo.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+       
+       }
         
     }
  }//ultimo

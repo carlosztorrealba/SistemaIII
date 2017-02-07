@@ -282,7 +282,11 @@ tima=new TipoOrganizacion( formtipoorg.getTxtCodTipoOrg().getText(),
         
         if(e.getSource().equals(formtipoorg.getBtnConsultar()))
        {
-       
+            try {
+                new ControladorJConsultarTipoOrganizacion();
+            } catch (SQLException ex) {
+                Logger.getLogger(ControladorJTipoOrganizacion.class.getName()).log(Level.SEVERE, null, ex);
+            }
        }  
     }
 

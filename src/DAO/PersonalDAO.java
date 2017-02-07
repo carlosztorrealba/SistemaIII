@@ -14,16 +14,16 @@ public class PersonalDAO extends ClassConexionDAO
  {
    String Sql;
    
- SimpleDateFormat formato=new SimpleDateFormat("dd/MM/yyyy");
+// SimpleDateFormat formato=new SimpleDateFormat("dd/MM/yyyy");
    
-   String Fecha=perso.getFechaingreso().toString();
+  // String Fecha=perso.getFechaingreso().toString();
    Sql="INSERT INTO personal(ci,nombreper,apellidoper,codcargo,tipoper,fechaingreso,estatusper)  VALUES (";
    Sql=Sql+Rutinas.Apost(perso.getCedula())+",";
    Sql=Sql+Rutinas.Apost(perso.getNombre())+",";
    Sql=Sql+Rutinas.Apost(perso.getApellido())+",";
    Sql=Sql+Rutinas.Apost(perso.getCodigocargo())+",";
    Sql=Sql+Rutinas.Apost(perso.getTipopersonal())+",";
-   Sql=Sql+Rutinas.Apost(Fecha)+",";
+   Sql=Sql+Rutinas.Apost(perso.getFechaingreso())+",";
    Sql=Sql+Rutinas.Apost(perso.getEstatus())+")";
      ConeccionBD.ejecutar(Sql);
  }         

@@ -18,10 +18,10 @@ public class Personal1
     String apellido;
     String codigocargo;
     String tipopersonal;
-    Date fechaingreso;
+    String fechaingreso;
     String estatus;
 
-    public Personal1(String cedula, String nombre, String apellido, String codigocargo, String tipopersonal, Date fechaingreso, String estatus) {
+    public Personal1(String cedula, String nombre, String apellido, String codigocargo, String tipopersonal, String fechaingreso, String estatus) {
         this.cedula = cedula;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -75,11 +75,11 @@ public class Personal1
         this.tipopersonal = tipopersonal;
     }
 
-    public Date getFechaingreso() {
+    public String getFechaingreso() {
         return fechaingreso;
     }
 
-    public void setFechaingreso(Date fechaingreso) {
+    public void setFechaingreso(String fechaingreso) {
         this.fechaingreso = fechaingreso;
     }
 
