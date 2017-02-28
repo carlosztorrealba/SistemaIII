@@ -149,7 +149,7 @@ public class ControladorJPersonal implements ActionListener
       jperso.getTxtNombre().setText(RegistroPersonal.getString("nombrePer"));
       jperso.getTxtApellido().setText(RegistroPersonal.getString("apellidoper"));
       jperso.getTxtCodigoCargo().setText(RegistroPersonal.getString("codCargo"));
-      jperso.getTxtFechaIngreso().setText(RegistroPersonal.getString("fechaIngreso"));
+      jperso.getJdcFecha().setDateFormatString(RegistroPersonal.getString("fechaIngreso"));
       jperso.getCmbTipoPersonal().setSelectedItem(RegistroPersonal.getString("tipoper"));
       jperso.getCmbEstatus().setSelectedItem(RegistroPersonal.getString("estatusper"));
        
@@ -263,7 +263,7 @@ public class ControladorJPersonal implements ActionListener
       jperso.getTxtCedula().setText(""); 
       jperso.getTxtNombre().setText("");
       jperso.getTxtApellido().setText("");
-      jperso.getTxtFechaIngreso().setText("");
+      jperso.getJdcFecha().cleanup();
       jperso.getTxtCodigoCargo().setText("");
       jperso.getTxtNombreCargo().setText("");
       jperso.getCmbTipoPersonal().setSelectedIndex(0);
@@ -300,7 +300,7 @@ public class ControladorJPersonal implements ActionListener
   {
       jperso.getTxtCedula().setEnabled(!status);
       jperso.getTxtNombre().setEnabled(status);
-      jperso.getTxtFechaIngreso().setEnabled(status);
+      jperso.getJdcFecha().setEnabled(status);
       jperso.getTxtCodigoCargo().setEnabled(status);
       jperso.getTxtApellido().setEnabled(status);
       jperso.getTxtNombreCargo().setEnabled(status);
@@ -355,12 +355,12 @@ public class ControladorJPersonal implements ActionListener
    } 
   
 
-   Cadena=jperso.getTxtFechaIngreso().getText().trim();
+   Cadena=jperso.getJdcFecha().getDateFormatString().trim();
   
   if (Cadena.length()==0)
    {  
      Mensajes.Aviso("Fecha Vacia", "");  
-     jperso.getTxtFechaIngreso().requestFocusInWindow();
+     jperso.getJdcFecha().requestFocusInWindow();
      return;
    } 
   if (jperso.getCmbTipoPersonal().getSelectedIndex()==0)  
@@ -387,13 +387,13 @@ public class ControladorJPersonal implements ActionListener
  //Grabacion************************
 
 //Date Fecha= Rutinas.CnvStringFecha(jperso.getFrmtFechaIngreso().getText());
-
+    String fecha = jperso.getJdcFecha().getDateFormatString();
     perso=new Personal1(jperso.getTxtCedula().getText(),
                        jperso.getTxtNombre().getText(),
                        jperso.getTxtApellido().getText(),
                        jperso.getTxtCodigoCargo().getText(),
                        tipo,
-                       jperso.getTxtFechaIngreso().getText(),
+                       fecha,
                        estatus
                        );
  

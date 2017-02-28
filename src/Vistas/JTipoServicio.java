@@ -47,7 +47,7 @@ public class JTipoServicio extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(204, 255, 204));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel1.setText("REGISTRAR NUEVO TIPO DESERVICIO");
+        jLabel1.setText("REGISTRAR NUEVO TIPO DE SERVICIO");
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel2.setText("Codigo del Servicio:");

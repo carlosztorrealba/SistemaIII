@@ -5,6 +5,7 @@
  */
 package Vistas;
 
+import com.toedter.calendar.JDateChooser;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -46,16 +47,16 @@ public class JPersonal extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         txtNombreCargo = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        cmbTipoPersonal = new javax.swing.JComboBox<String>();
+        cmbTipoPersonal = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        cmbEstatus = new javax.swing.JComboBox<String>();
+        cmbEstatus = new javax.swing.JComboBox<>();
         btnGuardar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
         btnConsultar = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
-        txtFechaIngreso = new javax.swing.JTextField();
+        jdcFecha = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -83,7 +84,7 @@ public class JPersonal extends javax.swing.JFrame {
         jLabel6.setText("Tipo Personal:");
 
         cmbTipoPersonal.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        cmbTipoPersonal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione", "Fijo", "Suplente" }));
+        cmbTipoPersonal.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Fijo", "Suplente" }));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel7.setText("Fecha de Ingreso:");
@@ -92,7 +93,7 @@ public class JPersonal extends javax.swing.JFrame {
         jLabel8.setText("Estatus:");
 
         cmbEstatus.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        cmbEstatus.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione", "Activo", "Inactivo" }));
+        cmbEstatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Activo", "Inactivo" }));
 
         btnGuardar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnGuardar.setText("Guardar");
@@ -154,22 +155,24 @@ public class JPersonal extends javax.swing.JFrame {
                                         .addGap(18, 18, 18)
                                         .addComponent(txtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel7)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(txtFechaIngreso))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel6)
-                                        .addGap(45, 45, 45)
-                                        .addComponent(cmbTipoPersonal, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(1, 1, 1))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel8)
                                         .addGap(87, 87, 87)
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(btnCancelar)
-                                            .addComponent(cmbEstatus, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                            .addComponent(cmbEstatus, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                                .addComponent(jLabel7)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(jdcFecha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addComponent(jLabel6)
+                                                .addGap(45, 45, 45)
+                                                .addComponent(cmbTipoPersonal, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGap(1, 1, 1)))
                                 .addGap(30, 30, 30)
                                 .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap(21, Short.MAX_VALUE))))
@@ -177,7 +180,7 @@ public class JPersonal extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(19, Short.MAX_VALUE)
+                .addContainerGap(22, Short.MAX_VALUE)
                 .addComponent(jLabel9)
                 .addGap(47, 47, 47)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -206,10 +209,10 @@ public class JPersonal extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(cmbTipoPersonal, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel7)
-                    .addComponent(txtFechaIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jdcFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -338,9 +341,10 @@ public class JPersonal extends javax.swing.JFrame {
         return txtNombreCargo;
     }
 
-    public JTextField getTxtFechaIngreso() {
-        return txtFechaIngreso;
+    public JDateChooser getJdcFecha() {
+        return jdcFecha;
     }
+
     
     
     
@@ -363,10 +367,10 @@ public class JPersonal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private com.toedter.calendar.JDateChooser jdcFecha;
     private javax.swing.JTextField txtApellido;
     private javax.swing.JTextField txtCedula;
     private javax.swing.JTextField txtCodigoCargo;
-    private javax.swing.JTextField txtFechaIngreso;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtNombreCargo;
     // End of variables declaration//GEN-END:variables
